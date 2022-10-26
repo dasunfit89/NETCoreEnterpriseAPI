@@ -1,0 +1,311 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LocatieApp.API</name>
+    </assembly>
+    <members>
+        <member name="M:LocatieApp.API.Controllers.BaseController.CreateToken(LocatieApp.API.Data.ViewModels.UserModel)">
+            <summary>
+            Create the authentication token for users
+            </summary>
+            <param name="userName"></param>
+            <param email="userEmail"></param>
+            <returns>Authentication token</returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.FileController.UploadResFileAsync(LocatieApp.API.Data.CommonFileUploadFormModel)">
+            <summary>
+            Upload Restaurnt file and user file 
+            </summary>
+            <param name="fileUpload"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.FileController.DownloadArticleFileAsync(System.Int32,System.Int32)">
+            <summary>
+            Download article file asynchronously
+            </summary>
+            <param name="articleId"></param>
+            <param name="fileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.FileController.DownloadUserFileAsync(System.Int32,System.Int32)">
+            <summary>
+            Download user file asynchronously
+            </summary>
+            <param name="userId"></param>
+            <param name="fileId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.LookupController.GetCountries">
+            <summary>
+            Get Countries
+            </summary>
+            <returns>Countries list</returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.#ctor(LocatieApp.API.Core.Services.Interface.IArticleService,LocatieApp.API.Core.Services.IUserService,Microsoft.Extensions.Options.IOptions{LocatieApp.API.Data.AppSettings})">
+            <summary>
+            Article controller constructor 
+            </summary>
+            <param name="articleService"></param>
+            <param name="userService"></param>
+            <param name="appSettings"></param>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.GetArticles(LocatieApp.API.Data.ViewModels.GetArticleListRequest)">
+            <summary>
+            Get Articles list with pagination
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.ArticleList(LocatieApp.API.Data.ViewModels.GetArticleListRequest)">
+            <summary>
+            Get Articles list with paginate
+            </summary>
+            <param User_Location_Lat="User_Location_Lat"></param>
+            <param User_Location_Lon="User_Location_Lon"></param>
+            <param UserId="UserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.GetArticleById(System.Int32,System.String)">
+            <summary>
+            Get Article by articleId  
+            </summary>
+            <param name="articleId"></param>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.GetArticleComments(System.Int32)">
+            <summary>
+            Get Article Comments
+            </summary>
+            <param name="articleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.AddArticleComment(LocatieApp.API.Data.ViewModels.ResCommentRequest)">
+            <summary>
+            Add Article Comment
+            </summary>
+            <param RProblems="RProblems"></param>
+            <param UserId="UserId"></param>
+            <param ArticleId="ArticleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.GetArticlesByBadge(System.String)">
+            <summary>
+            Get Articles by badge name
+            </summary>
+            <param name="badgenName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.AddUserArticleChoice(LocatieApp.API.Data.ViewModels.UserArticleChoiceRequest)">
+            <summary>
+            Add Ratings for a Article by User
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.AddUserRequestedArticle(LocatieApp.API.Data.ViewModels.Article.UserRequestedArticleRequest)">
+            <summary>
+            Add a request for a article by user
+            </summary>
+            <param RName="RName"></param>
+            <param RStreet="RStreet"></param>
+            <param RCity="RCity"></param>
+            <param CountryId="CountryId"></param>
+            <param UserId="UserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.AddUserArticleList(LocatieApp.API.Data.ViewModels.Article.AddUserArticleListRequest)">
+            <summary>
+            Add user article list
+            </summary>
+            <param ListName="ListName"></param>
+            <param IconId="IconId"></param>
+            <param LColour="LColour"></param>
+            <param UserId="UserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.AddUserRestaurentList(LocatieApp.API.Data.ViewModels.AddUserArticleRequest)">
+            <summary>
+            Add user restaurent list
+            </summary>
+            <param ListId="ListId"></param>
+            <param ArticleId="ArticleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.AddUserRestaurentList(LocatieApp.API.Data.ViewModels.EditUserArticleListRequest)">
+            <summary>
+            Add user restaurent list
+            </summary>
+            <param Id="Id"></param>
+            <param ListName="ListName"></param>
+            <param IconId="IconId"></param>
+            <param LColour="LColour"></param>
+            <param UserId="UserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.DeleteUserRestaurentList(LocatieApp.API.Data.ViewModels.DeleteUserArticleListRequest)">
+            <summary>
+            Delete user restaurent list by mylistId
+            </summary>
+            <param Id="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.GetUserMyList(System.Int32)">
+            <summary>
+            Get user myList by userId
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.GetUserArticles(System.Int32)">
+            <summary>
+            Get User Articles by myListId
+            </summary>
+            <param name="myListId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.GetSearch(LocatieApp.API.Data.ViewModels.Article.SearchRequest)">
+            <summary>
+            Search returants by geo coordinates and name
+            </summary>
+            <param name="name"></param>
+            <param latitude="latitude"></param>
+            <param longitude="longitude"></param>
+            <param UserId="UserId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.FilterArticle(LocatieApp.API.Data.ViewModels.FilterArticleRequest,LocatieApp.API.Data.PagingQueryParam)">
+            <summary>
+            Filter Article and apply pagination
+            </summary>
+            <param name="request"></param>
+            <param name="param"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.AddUserFavouriteArticle(LocatieApp.API.Data.ViewModels.UserFavouriteArticleRequest)">
+            <summary>
+            Add user favourite article
+            </summary>
+            <param UserId="UserId"></param>
+            <param ArticleId="ArticleId"></param>
+            <param IsFavorite="IsFavorite"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.RemoveUserFavouriteArticle(LocatieApp.API.Data.ViewModels.RemoveUserFavouriteArticleRequest)">
+            <summary>
+            Remove user favourite article
+            </summary>
+            <param UserId="UserId"></param>
+            <param ArticleId="ArticleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.ArticleController.RemoveUserArticle(LocatieApp.API.Data.ViewModels.DeleteUserArticleRequest)">
+            <summary>
+            Remove user article
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.Authenticate(LocatieApp.API.Data.ViewModels.LoginRequest)">
+            <summary>
+            This will Authenticate the user 
+            </summary>
+            <param name="request">Mandatory</param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.FBAuthenticate(LocatieApp.API.Data.ViewModels.FbAuthenticationRequest)">
+            <summary>
+            Facenbook Authenticate
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.SignUp(LocatieApp.API.Data.ViewModels.SignUpRequest)">
+            <summary>
+            Register the user
+            </summary>
+            <param name="request"></param>
+            <returns>User details and authentication token</returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.DeleteUser(LocatieApp.API.Data.ViewModels.DeleteUserRequest)">
+            <summary>
+            Deleting the user 
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.ForgotPassword(LocatieApp.API.Data.ViewModels.ForgotPasswordRequest)">
+            <summary>
+            Forgot Password Sequence 
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.ResetPassword(LocatieApp.API.Data.ViewModels.ResetPasswordRequest)">
+            <summary>
+            Reset user old password with new password
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.GetUserArticles(System.Int32)">
+            <summary>
+            Gets Listed Articles for User
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.GetUserArticleRequests(System.Int32)">
+            <summary>
+            Gets Requested Articles for User
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.GetVisitedArticles(System.Int32)">
+            <summary>
+            Gets Visited Articles for User
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.EditUserDetails(LocatieApp.API.Data.ViewModels.EditUserDetailsRequest)">
+            <summary>
+            Edits User
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.AddFavouriteArticle(LocatieApp.API.Data.ViewModels.UserFavouriteArticleRequest)">
+            <summary>
+            Adds Favourite Article for User
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.AddVisitedArticle(LocatieApp.API.Data.ViewModels.UserVisitedArticleRequest)">
+            <summary>
+            Adds Visited Article for User
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.GetUserTypes">
+            <summary>
+            Get traverller types
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:LocatieApp.API.Controllers.UserController.GetUserById(System.Int32)">
+            <summary>
+            Get user by userId
+            </summary>
+            <param name="userId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:LocatieApp.API.Startup">
+            <summary>
+             
+            </summary>
+        </member>
+    </members>
+</doc>

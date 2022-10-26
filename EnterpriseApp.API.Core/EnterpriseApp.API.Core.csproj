@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <ExternalConsole>false</ExternalConsole>
+	</PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AutoMapper" Version="10.1.1" />
+		<PackageReference Include="GoogleApi" Version="3.10.9" />
+		<PackageReference Include="MailKit" Version="2.12.0" />
+		<PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+		<PackageReference Include="GeoCoordinate.NetCore" Version="1.0.0.1" />
+		<PackageReference Include="Google.Cloud.Storage.V1" Version="3.5.0" />
+		<PackageReference Include="Google.Cloud.Firestore" Version="2.4.0" />
+		<PackageReference Include="EPPlus" Version="5.6.4" />
+		<PackageReference Include="FirebaseAdmin" Version="2.2.0" />
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.9.1" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Extensions\" />
+		<Folder Include="Helpers\" />
+		<Folder Include="Constants\" />
+		<Folder Include="Authorizations\" />
+	</ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\EnterpriseApp.API.Data\EnterpriseApp.API.Data.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Services\Interface\IRestaurantService.cs" />
+		<Compile Remove="Services\EmailServices.cs" />
+		<Compile Remove="Services\AzureBlobService.cs" />
+		<Compile Remove="Services\RestaurantService.cs" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Authorizations\" />
+	  <None Remove="Azure.Storage.Blobs" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,329 @@
+﻿@model EnterpriseApp.API.Models.ViewModels.RestaurantModel
+
+@{
+    ViewData["Title"] = "Restaurant Details";
+}
+
+<h2>Restaurant Details</h2>
+
+@Html.HiddenFor(model => Model.Id)
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Name: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RName)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>City: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RCity)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Description: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RDescription)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Longitude: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RLongitude)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Latitude: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RLatitude)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Google PlaceId: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.GooglePlaceId)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Postal Code: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RPostalCode)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Contact: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RContact)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>MapIcon: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.MapIcon)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Price Des: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RPriceDes)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Price: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RPrice)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Price: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RPrice)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Address: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RAddress)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Metro: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RMetro)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Recommendation: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.RRecommendation)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Country Name: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.CountryName)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Category Name: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.CategoryName)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Distance: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.Distance)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>IsOpen: </label>
+    </div>
+    <div class="col-md-8">
+        @Html.DisplayFor(model => model.IsOpen)
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Sub-Categories:</label>
+    </div>
+    <div class="col-md-8">
+        @for (int i = 0; i < Model.SubcategoriesList.Count; i++)
+        {<div class="col-md-4">
+                <input disabled type="checkbox" checked="@Model.SubcategoriesList[i].Selected"> @Model.SubcategoriesList[i].Text
+            </div>
+        }
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label>Badges</label>
+    </div>
+    <div class="col-md-8">
+        @for (int i = 0; i < Model.ResBadges.Count; i++)
+        {
+            <div class="col-md-4">
+                <input disabled type="checkbox" checked="@Model.ResBadges[i].Selected"> @Model.ResBadges[i].Name
+            </div>
+        }
+    </div>
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-2 text-right">
+        <label for="Images">Gallery</label>
+        <span class="text-danger">*</span>
+    </div>
+    <div class="col-md-8">
+        <div>
+            @if (Model.Images != null)
+            {
+                foreach (var image in Model.Images)
+                {
+                    <div class="col-md-2">
+                        <div class="thumbnail">
+                            <a href="@image.Url" class="thumbnail">
+                                <img src="@image.Url" alt="...">
+                            </a>
+                            <div class="caption text-center">
+
+                                @if (image.Name != null)
+                                {<p>@image.Name</p>
+                            }
+                            else
+                            {
+                                <p>No caption available for this image</p>
+                            }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {<h1>No Images to display!</h1>
+            }
+        </div>
+
+    </div>
+
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-2">
+        <label for="OpeningHoursList" style="font-size:medium">Manage Sessions</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-2">
+        @Html.LabelFor(model => model.Session1)
+        <label><input style="margin-right:5px;" id="session01" type="checkbox" checked="@Model.Session1" disabled /></label>
+    </div>
+    <div class="col-md-2">
+        @Html.LabelFor(model => model.Session2)
+        <input style="margin-right:5px;" id="session02" type="checkbox" checked="@Model.Session2" disabled />
+    </div>
+</div>
+<hr />
+
+<div class="panel-body">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-14">
+                <table id="daySessionTable" class="display responsive table table-striped table-bordered table-hover dataTable" width="100%">
+                    <colgroup>
+                        <col width="20%">
+                        <col width="40%">
+                        <col width="40%">
+                    </colgroup>
+                    <thead class="thin-border-bottom">
+                        <tr>
+                            <th class="text-center">Day</th>
+                            <th class="text-center">Session 1</th>
+                            <th class="text-center">Session 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var day in Model.OpeningHours)
+                        {
+                            <tr id="default">
+                                <td><label class="day text-center"> @day.Weekday </label></td>
+                                @foreach (var item in day.Shifts)
+                                {
+                                    @if (@item.Name == "1")
+                                    {
+                                        <td class="text-center"><label class="day"> @item.Duration</label></td>
+                                    }
+                                    else if (@item.Name == "2")
+                                    {
+                                        <td class="text-center"><label class="day"> @item.Duration</label></td>
+                                    }
+                                }
+
+
+                                @if (day.Shifts.Count() < 2)
+                                {
+                                    <td class="text-center"><label class="day">Fermé-Fermé</label></td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <span class="text-danger" id="otherTableValidationMessage"></span>
+        </div>
+    </div>
+</div>
+
+<div>
+    <span class="btn btn-default btn-xs" style="margin:1px; width:60px">
+        @Html.ActionLink("Edit", "EditRestaurant", new { id = Model.Id })
+    </span>
+    <span class="btn btn-default btn-xs" style="margin:1px; width:100px">
+        <a asp-area="" asp-controller="Restaurant" asp-action="ViewRestaurants">Back to List</a>
+    </span>
+
+</div>

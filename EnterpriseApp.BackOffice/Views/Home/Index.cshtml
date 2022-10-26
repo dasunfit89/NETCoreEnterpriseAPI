@@ -1,0 +1,13 @@
+﻿@using EnterpriseApp.BackOffice.Filters;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1 style="text-align:center">WELCOME </h1>
+    <h2 style="text-align:center">DELICOUSLY ADMIN</h2>
+    @if (Context.IsSignedIn())
+    {
+    <span><i class="glyphicon glyphicon-ok text-success"></i>&nbsp; Hello @Context.UserName()</span>
+    }
+</div>

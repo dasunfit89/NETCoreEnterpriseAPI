@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<OutputType>Library</OutputType>
+	</PropertyGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="GoogleApi" Version="3.10.9" />
+		<PackageReference Include="MySql.Data" Version="8.0.25" />
+		<PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+		<PackageReference Include="Google.Cloud.Firestore" Version="2.4.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.12.4" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="Repo\BaseRepo.cs" />
+		<Compile Remove="Repo\User\UserRepo.cs" />
+		<Compile Remove="Repo\User\Interfaces\IUserRepo.cs" />
+		<Compile Remove="DeliciouslyContext.cs" />
+		<Compile Remove="Entity\City.cs" />
+		<Compile Remove="Entity\DeletedUser.cs" />
+		<Compile Remove="Entity\ResCategory.cs" />
+		<Compile Remove="Entity\ResFileUpload.cs" />
+		<Compile Remove="Entity\UserReward.cs" />
+		<Compile Remove="Entity\UserRestaurantRequest.cs" />
+		<Compile Remove="Entity\UserResList.cs" />
+		<Compile Remove="Entity\ResOpeningHour.cs" />
+		<Compile Remove="Entity\ResComment.cs" />
+		<Compile Remove="Entity\UserType.cs" />
+		<Compile Remove="Entity\UserUType.cs" />
+		<Compile Remove="Entity\SubcategoryEntity.cs" />
+		<Compile Remove="Entity\PortalUser.cs" />
+		<Compile Remove="Entity\ResFilterIcon.cs" />
+		<Compile Remove="Entity\ResKeySeq.cs" />
+		<Compile Remove="Entity\ResListRestaurant.cs" />
+		<Compile Remove="Entity\UserVisitedCountries.cs" />
+		<Compile Remove="Entity\OperationEntity.cs" />
+		<Compile Remove="Entity\ResSubcategoryEntity.cs" />
+		<Compile Remove="Entity\Restaurant.cs" />
+		<Compile Remove="Entity\UserFavouriteRestaurant.cs" />
+		<Compile Remove="Entity\UserVisitedRestaurant.cs" />
+		<Compile Remove="Entity\Country.cs" />
+		<Compile Remove="Entity\UserRestaurantChoice.cs" />
+		<Compile Remove="Entity\ResOperationEntity.cs" />
+		<Compile Remove="ViewModels\Restaurant\AddRestaurantCommentResponse.cs" />
+		<Compile Remove="ViewModels\Restaurant\AddUserRequestedRestaurantResponse.cs" />
+		<Compile Remove="ViewModels\Restaurant\FilterRestaurantRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\UserFavouriteRestaurantResponse.cs" />
+		<Compile Remove="ViewModels\Restaurant\SearchRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResCategoryModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResCommentModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResOpeningDayModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\UserRestaurantRequestModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\EditResOpeningShiftModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResOpeningShiftModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\OperationModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResOperationModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResOpeningHourModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\RestaurantInsertResponse.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResFilterIconModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\RestaurantModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\UserFavouriteRestaurantModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\RestaurantModelSearch.cs" />
+		<Compile Remove="ViewModels\Restaurant\RestaurantUpdateRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\UserVisitedRestaurantRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\ResCommentRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\UserFavouriteRestaurantRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\GetRestaurantListRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\RestaurantRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\RestaurantModelBackOffice.cs" />
+		<Compile Remove="ViewModels\Restaurant\RemoveUserFavouriteRestaurantRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\UserRequestedRestaurantRequest.cs" />
+		<Compile Remove="ViewModels\User\AddUserRestaurantResponse.cs" />
+		<Compile Remove="ViewModels\User\AddUserRestaurantRequest.cs" />
+		<Compile Remove="ViewModels\User\AddUserRestaurentChoiceResponse.cs" />
+		<Compile Remove="ViewModels\User\UserMyListResponse.cs" />
+		<Compile Remove="ViewModels\User\EditUserRestaurantListRequest.cs" />
+		<Compile Remove="ViewModels\User\UserVisitedCountryModel.cs" />
+		<Compile Remove="ViewModels\User\DeleteUserRestaurantRequest.cs" />
+		<Compile Remove="ViewModels\User\EditUserRestaurantListResponse.cs" />
+		<Compile Remove="ViewModels\User\UserUTypeModel.cs" />
+		<Compile Remove="ViewModels\User\UserTypeModel.cs" />
+		<Compile Remove="ViewModels\User\UserVisitedRestaurantModel.cs" />
+		<Compile Remove="ViewModels\User\UserRestaurantChoiceModel.cs" />
+		<Compile Remove="ViewModels\User\DeleteUserRestaurantResponse.cs" />
+		<Compile Remove="ViewModels\User\UserfileuploadRequest.cs" />
+		<Compile Remove="ViewModels\User\UserResListModel.cs" />
+		<Compile Remove="ViewModels\User\ResListRestaurantModel.cs" />
+		<Compile Remove="ViewModels\User\UserRewardModel.cs" />
+		<Compile Remove="ViewModels\User\UserRestaurantChoiceRequest.cs" />
+		<Compile Remove="ViewModels\Portal\PortalUserModel.cs" />
+		<Compile Remove="ViewModels\Portal\PortalLoginViewModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\AddUserVisitedRestaurantResponse.cs" />
+		<Compile Remove="ViewModels\Restaurant\EditResOpeningDayModel.cs" />
+		<Compile Remove="ViewModels\Restaurant\AddUserRestaurantListRequest.cs" />
+		<Compile Remove="ViewModels\Restaurant\AddUserRestaurantListResponse.cs" />
+		<Compile Remove="FirestoreRepository.cs" />
+		<Compile Remove="ViewModels\Article\UserComment\UserCommentInsertModel %28copy%29.cs" />
+		<Compile Remove="ViewModels\Article\ArticleInsertModel %28copy%29.cs" />
+		<Compile Remove="ViewModels\Article\GetArticleResponse %28copy%29.cs" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Attributes\" />
+		<Folder Include="Entity\" />
+		<Folder Include="ViewModels\" />
+		<Folder Include="ViewModels\File\" />
+		<Folder Include="ViewModels\Paging\" />
+		<Folder Include="Enums\" />
+		<Folder Include="ViewModels\Category\" />
+		<Folder Include="ViewModels\Price\" />
+		<Folder Include="ViewModels\Service\" />
+		<Folder Include="ViewModels\Divisions\" />
+		<Folder Include="ViewModels\Area\" />
+		<Folder Include="ViewModels\Common\" />
+		<Folder Include="ViewModels\Base\" />
+		<Folder Include="ViewModels\Article\PublicSentNews\" />
+		<Folder Include="ViewModels\Article\PublicSentPartyInformation\" />
+		<Folder Include="ViewModels\Article\PublicSentInformation\" />
+		<Folder Include="ViewModels\Article\InformationCategory\" />
+		<Folder Include="ViewModels\Configuration\" />
+		<Folder Include="ViewModels\Chat\" />
+		<Folder Include="ViewModels\Push\" />
+		<Folder Include="ViewModels\Authorizations\" />
+		<Folder Include="ViewModels\Article\Designation\" />
+		<Folder Include="ViewModels\Admin\" />
+		<Folder Include="ViewModels\Article\PublicMessage\" />
+		<Folder Include="ViewModels\Article\UserComment\" />
+		<Folder Include="ViewModels\Email\" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="ViewModels\Authorizations\" />
+	  <None Remove="ViewModels\Article\Designation\" />
+	  <None Remove="ViewModels\Admin\" />
+	  <None Remove="ViewModels\Article\PublicMessage\" />
+	  <None Remove="ViewModels\Article\UserComment\" />
+	  <None Remove="ViewModels\Email\" />
+	</ItemGroup>
+</Project>

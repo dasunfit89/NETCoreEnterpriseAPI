@@ -1,0 +1,130 @@
+﻿@using EnterpriseApp.BackOffice.Filters;
+@{
+    ViewData["Title"] = "Resturent Manage";
+}
+
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+<h2>Status Restaurant</h2>
+
+@if (!string.IsNullOrEmpty(ViewBag.Result))
+{
+    <p id="viewBagResult" class="text-success bg-success text-center" syle="padding: 10px 10px 10px 10px;border-radius: 5px;">@ViewBag.Result</p>
+}
+
+@if (!string.IsNullOrEmpty(ViewBag.InvalidResult))
+{
+    <p id="viewBagInvalidResult" class="text-danger bg-danger text-center" syle="padding: 10px 10px 10px 10px;border-radius: 5px;">@ViewBag.InvalidResult</p>
+}
+
+<hr />
+
+<main role="main" class="container">
+    <div class="form-group">
+        <div class="row">
+            <div class="col-md-2 text-right">
+                <label for="postalCode" style="margin-top:8px;"> Postal Code</label>
+            </div>
+            <div class="col-md-3">
+                <div>
+                    <input id="postalCode" placeholder="Postal code" class="form-control" type="number" />
+                    <label id="postalCodeValidation"></label>
+                </div>
+                <div id="postalCodeValidation">
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button type="button" id="checkPostalCode" onclick="checkPostalCodeStatus()" data-dismiss="modal" class="btn btn-default">Search</button>
+            </div>
+            <div class="col-md-2">
+                <input type="checkbox" id="toggle-trigger" checked data-toggle="toggle">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="row pull-right">
+                <button type="button" id="enalbePostalCode" onclick="setPostalCodeActive()" data-dismiss="modal" class="btn btn-default">Enable</button>
+                <button id="cancel-button" type="button" class="btn btn-default" data-dismiss="modal" onclick="confirmCancelation()">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script>
+
+        function checkPostalCodeStatus() {
+            var posetalCodeValue = $('#postalCode').val();
+
+            $.ajax({
+                async: false,
+                type: "POST",
+                url: "/RestaurantConfig/CheckResturantStatus?postalCode=" + posetalCodeValue,
+                dataType: "json",
+                contentType: 'application/json;charset=utf-8',
+                success: function (response) {
+                    if (response.isSuccess) {
+
+                        if (response.status)
+                            $('#toggle-trigger').bootstrapToggle('on')
+                        else
+                            $('#toggle-trigger').bootstrapToggle('off')
+                    }
+                    else {
+                    }
+                },
+                error: function (response) {
+                }
+            });
+        }
+
+        function confirmCancelation() {
+            window.location = '/Home/RestaurantList';
+        }
+
+        function setPostalCodeActive() {
+            var status = true;
+            
+            var posetalCodeValue = $('#postalCode').val();
+            var toggleValue = $('#toggle-trigger').prop("checked");
+
+            if ($('#postalCode').val().trim() == "") {
+                $('#postalCode').focus();
+                $("#postalCodeValidation").show();
+                $("#postalCodeValidation").addClass("text-danger");
+                $("#postalCodeValidation").text("Postal code is required");
+                status = false;
+            }
+
+            if (status) {
+
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/RestaurantConfig/SetResturantStatus?postalCode=" + posetalCodeValue + "&status=" + toggleValue,
+                    dataType: "json",
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (response) {
+                        if (response.isSuccess) {
+                            location.reload();
+                        }
+                    },
+                    error: function (response) {
+                    }
+                });
+            }
+        }
+
+
+        setTimeout(fade_out, 5000);
+
+        function fade_out() {
+            $("#viewBagResult").fadeOut().empty();
+            $("#viewBagInvalidResult").fadeOut().empty();
+        }
+
+    </script>
+}

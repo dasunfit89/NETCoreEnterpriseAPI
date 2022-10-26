@@ -1,0 +1,745 @@
+﻿
+@model EnterpriseApp.API.Models.ViewModels.RestaurantRequest
+
+@{
+    ViewData["Title"] = "Create Restaurant";
+}
+
+<h2>Create Restaurant</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm("CreateRestaurant", "Restaurant", FormMethod.Post))
+{
+    <hr />
+    <main role="main" class="container">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RName)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RName, new { @class = "form-control", Placeholder = "Name" })
+                        @Html.ValidationMessageFor(error => error.RName, "", new { @id = "nameIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="nameValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RCity)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RCity, new { @class = "form-control", Placeholder = "City" })
+                        @Html.ValidationMessageFor(error => error.RCity, "", new { @id = "cityIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="cityValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.Country)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.DropDownListFor(m => m.CountryId, Model.Country, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(error => error.Country, "", new { @id = "countryIdValidationID", @class = "text-danger" })
+                    </div>
+                    <div id="countryValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.Category)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.DropDownListFor(m => m.CategoryId, Model.Category, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(error => error.Category, "", new { @id = "categoryIdValidationID", @class = "text-danger" })
+                    </div>
+                    <div id="categoryValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.MapIcons)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.DropDownListFor(m => m.MapIcon, Model.MapIcons, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(error => error.MapIcons, "", new { @id = "mapIdValidationID", @class = "text-danger" })
+                    </div>
+                    <div id="countryValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RDescription)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RDescription, new { @class = "form-control", Placeholder = "Description" })
+                        @Html.ValidationMessageFor(error => error.RDescription, "", new { @id = "descriptionIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="descriptionValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RLatitude)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RLatitude, new { @class = "form-control", Placeholder = "Latitude" })
+                        @Html.ValidationMessageFor(error => error.RLatitude, "", new { @id = "latitudeIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="latitudeValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RLongitude)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RLongitude, new { @class = "form-control", Placeholder = "Longitude" })
+                        @Html.ValidationMessageFor(error => error.RLongitude, "", new { @id = "longitudeIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="longitudeValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.GooglePlaceId)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.GooglePlaceId, new { @class = "form-control", Placeholder = "Google PlaceId" })
+                        @Html.ValidationMessageFor(error => error.GooglePlaceId, "", new { @id = "googlePlaceIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="longitudeValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RPostalCode)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RPostalCode, new { @class = "form-control", Placeholder = "PostalCode" })
+                        @Html.ValidationMessageFor(error => error.RPostalCode, "", new { @id = "postalCodeIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="postalCodeValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RContact)
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RContact, new { @class = "form-control", Placeholder = "Contact" })
+                        @Html.ValidationMessageFor(error => error.RContact, "", new { @id = "contactIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="contactValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RPriceDes)
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RPriceDes, new { @class = "form-control", Placeholder = "PriceDes" })
+                        @Html.ValidationMessageFor(error => error.RPriceDes, "", new { @id = "priceDesIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="priceDesValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RPrice)
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RPrice, new { @class = "form-control", Placeholder = "Price" })
+                        @Html.ValidationMessageFor(error => error.RPrice, "", new { @id = "priceIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="priceValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RAddress)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RAddress, new { @class = "form-control", Placeholder = "Address" })
+                        @Html.ValidationMessageFor(error => error.RAddress, "", new { @id = "addressIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="addressValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RMetro)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RMetro, new { @class = "form-control", Placeholder = "Metro" })
+                        @Html.ValidationMessageFor(error => error.RMetro, "", new { @id = "metroIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="metroValidation">
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.RRecommendation)
+                </div>
+                <div class="col-md-5">
+                    <div>
+                        @Html.TextBoxFor(model => model.RRecommendation, new { @class = "form-control", Placeholder = "RRecommendation" })
+                        @Html.ValidationMessageFor(error => error.RRecommendation, "", new { @id = "recommendationIdValidation", @class = "text-danger" })
+                    </div>
+                    <div id="recommendationValidation">
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    @Html.LabelFor(model => model.Subcategories)<span class="text-danger">*</span>
+                </div>
+                <div class="col-md-5">
+                    @for (int i = 0; i < Model.SubcategoriesList.Count; i++)
+                    {
+                        <div id="rolesCheckbox">
+                            <label><input style="margin-right: 5px;" id="sub_@Model.SubcategoriesList[i].Value" value="@Model.SubcategoriesList[i].Value" type="checkbox" name="subcategories">@Model.SubcategoriesList[i].Text</label>
+                        </div>
+                    }
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-2 text-right">
+                    <label for="resBadges">Badges</label>
+                    <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-8">
+                    @for (int i = 0; i < Model.BadgesModel.Count; i++)
+                    {
+                        <div class="col-md-4" id="rolesCheckbox">
+                            <label>
+                                <input style="margin-right: 5px;"
+                                       value="@Model.BadgesModel[i].Id"
+                                       type="checkbox"
+                                       name="resBadges">@Model.BadgesModel[i].Name
+                                </label>
+                            </div>
+
+                        }
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="col-md-2">
+                    <label for="OpeningHoursList" style="font-size:medium">Manage Sessions</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.Session1)
+                    <label><input style="margin-right:5px;" id="session01" type="checkbox" checked="@Model.Session1" /></label>
+                </div>
+                <div class="col-md-2">
+                    @Html.LabelFor(model => model.Session2)
+
+                    <label><input style="margin-right:5px;" id="session01" type="checkbox" checked="@Model.Session2" /></label>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-14">
+                                <table id="daySessionTable" class="display responsive table table-striped table-bordered table-hover dataTable" width="100%">
+                                    <colgroup>
+                                        <col width="10%">
+                                        <col width="20%">
+                                        <col width="20%">
+                                        <col width="20%">
+                                        <col width="20%">
+                                    </colgroup>
+                                    <thead class="thin-border-bottom">
+                                        <tr>
+                                            <th class="text-center">Day</th>
+                                            <th class="text-center" colspan="2">Session 1</th>
+                                            <th class="text-center" colspan="2">Session 2</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var day in Model.Days)
+                                        {
+                                            var session1Open = "session1Open" + day.Text;
+                                            var session1Close = "session1Close" + day.Text;
+                                            var session2Open = "session2Open" + day.Text;
+                                            var session2Close = "session2Close" + day.Text;
+
+                                            <tr id="default">
+                                                <td><label class="day"> @day.Text </label></td>
+                                                <td>
+                                                    <div class="col-lg-12">
+                                                        <div class="col-sm-2" style="margin:7px;">Open</div>
+                                                        <div class="col-md-8" style="padding-right: 1px">
+                                                            <input class="form-control" type="time" id="@session1Open" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-12">
+                                                        <div class="col-sm-2" style="margin:7px;">Close</div>
+                                                        <div class="col-md-8" style="padding-right: 1px">
+                                                            <input class="form-control" type="time" id="@session1Close" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-12">
+                                                        <div class="col-sm-2" style="margin:7px;">Open</div>
+                                                        <div class="col-md-8" style="padding-right: 1px">
+                                                            <input class="form-control" type="time" id="@session2Open" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="col-lg-12">
+                                                        <div class="col-sm-2" style="margin:7px;">Close</div>
+                                                        <div class="col-md-8" style="padding-right: 1px">
+                                                            <input class="form-control" type="time" id="@session2Close" />
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-8">
+                            <span class="text-danger" id="otherTableValidationMessage"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row pull-right">
+                    <button id="cancel-button" type="button" class="btn btn-default" data-dismiss="modal" onclick="showCancelModal(this)">Cancel</button>
+                    <input type="button" class="btn btn-default" onclick="showCreatebankModel(this)" value="Create" />
+                </div>
+            </div>
+    </main>
+
+    <div>
+        <span class="btn btn-default btn-xs" style="margin:1px; width:75px">
+            <a asp-area="" asp-controller="Restaurant" asp-action="ViewRestaurants">Back to List</a>
+        </span>
+    </div>
+
+    <!-- Accept Confirm Modal -->
+    <div class="modal fade" id="confirmCreateModel" role="dialog">
+        <div class="modal-dialog modal modal-sm">
+            <div class="modal-content">
+                <div class="modal-header" id="modal-header">
+                    <button type="button" id="close-button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modal-title"><span id="modal-title-text">Create Restaurant</span></h4>
+                </div>
+                <div class="modal-body">
+                    <p id="model-content">Do you want to proceed with restaurant creation?</p>
+                </div>
+                <div class="modal-footer">
+                    <button id="cancel-button" type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <button id="confirm-create-button" type="submit" class="btn btn-default">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cancel Modal -->
+    <div class="modal fade" id="cancelModal" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header" id="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="modal-title">
+                        <span id="modal-title-text">Confirm Cancel</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <p id="cancel-message">All your changes will be discarded. Are you sure you want to proceed?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="confirmCancelation()">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+
+    .left-time-algin {
+        margin-left: -18px;
+    }
+
+    .right-time-algin {
+        margin-left: -44px;
+    }
+</style>
+
+@section Scripts{
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script>
+        var ResOpeningHour = [];
+
+        $('select option:contains("France")').prop('selected', true);
+        $('select option:contains("Restaurant")').prop('selected', true);
+
+        function getOpenHours() {
+
+            $('#daySessionTable tbody tr').each(function () {
+
+                var rowDayValue = $(this).find('.day').html().trim();
+
+                var session1Open = $('#session1Open' + rowDayValue).val();
+                var session1Close = $('#session1Close' + rowDayValue).val();
+
+                var session2Open = $('#session2Open' + rowDayValue).val();
+                var session2Close = $('#session2Close' + rowDayValue).val();
+
+                var session1 = {
+                    Session: 1,
+                    Day: rowDayValue,
+                    Opens: (session1Open != "" && session1Close != "") ? session1Open : 'Fermé',
+                    Closes: (session1Open != "" && session1Close != "") ? session1Close : 'Fermé',
+                };
+
+                ResOpeningHour.push(session1);
+
+                var session2 = {
+                    Session: 2,
+                    Day: rowDayValue,
+                    Opens: (session2Open != "" && session2Close != "") ? session2Open : 'Fermé',
+                    Closes: (session2Open != "" && session2Close != "") ? session2Close : 'Fermé',
+                };
+
+                ResOpeningHour.push(session2);
+            });
+        }
+
+        $(":input:not([type=hidden])").change(function () {
+            $('.container').addClass('isDirty');
+        });
+
+        $("select").change(function () {
+            $('.container').addClass('isDirty');
+        });
+
+        function showCancelModal() {
+            if ($('.container').hasClass('isDirty')) {
+                $('#cancelModal').modal('show');
+            }
+            else {
+                confirmCancelation();
+            }
+        }
+
+        function confirmCancelation() {
+            window.location = '/Restaurant/ViewRestaurants';
+        }
+
+        function showCreatebankModel() {
+            var status = true;
+            getOpenHours();
+
+            if ($('#RName').val().trim() == "") {
+                $('#RName').focus();
+                $("#nameIdValidation").show();
+                $("#nameIdValidation").addClass("text-danger");
+                $("#nameIdValidation").text("Restaurant name is required");
+                status = false;
+            }
+
+            if ($('#RCity').val().trim() == "") {
+                $('#RCity').focus();
+                $("#cityIdValidation").show();
+                $("#cityIdValidation").addClass("text-danger");
+                $("#cityIdValidation").text("City is required");
+                status = false;
+            }
+
+            if ($('#RDescription').val().trim() == "") {
+                $('#RDescription').focus();
+                $("#descriptionIdValidation").show();
+                $("#descriptionIdValidation").addClass("text-danger");
+                $("#descriptionIdValidation").text("Description is required");
+                status = false;
+            }
+
+            if ($('#RLatitude').val().trim() == "") {
+                $('#RLatitude').focus();
+                $("#latitudeIdValidation").show();
+                $("#latitudeIdValidation").addClass("text-danger");
+                $("#latitudeIdValidation").text("Latitude is required");
+                status = false;
+            }
+
+            if ($('#RLongitude').val().trim() == "") {
+                $('#RLongitude').focus();
+                $("#longitudeIdValidation").show();
+                $("#longitudeIdValidation").addClass("text-danger");
+                $("#longitudeIdValidation").text("Longitude is required");
+                status = false;
+            }
+
+            if ($('#GooglePlaceId').val().trim() == "") {
+                $('#GooglePlaceId').focus();
+                $("#googlePlaceIdValidation").show();
+                $("#googlePlaceIdValidation").addClass("text-danger");
+                $("#googlePlaceIdValidation").text("Google PlaceId is required");
+                status = false;
+            }
+
+            if ($('#RPostalCode').val().trim() == "") {
+                $('#RPostalCode').focus();
+                $("#postalCodeIdValidation").show();
+                $("#postalCodeIdValidation").addClass("text-danger");
+                $("#postalCodeIdValidation").text("Postal Code is required");
+                status = false;
+            }
+
+            if ($('#MapIcon').val().trim() == "") {
+                $('#MapIcon').focus();
+                $("#mapIconIdValidation").show();
+                $("#mapIconIdValidation").addClass("text-danger");
+                $("#mapIconIdValidation").text("MapIcon is required");
+                status = false;
+            }
+
+            if ($('#RAddress').val().trim() == "") {
+                $('#RAddress').focus();
+                $("#addressIdValidation").show();
+                $("#addressIdValidation").addClass("text-danger");
+                $("#addressIdValidation").text("Address is required");
+                status = false;
+            }
+
+            if ($('#RMetro').val().trim() == "") {
+                $('#RMetro').focus();
+                $("#metroIdValidation").show();
+                $("#metroIdValidation").addClass("text-danger");
+                $("#metroIdValidation").text("Metro is required");
+                status = false;
+            }
+
+            var subcategories = new Array();
+            var resBadges = new Array();
+
+            $.each($("input[name='subcategories']:checked"), function () {
+                subcategories.push($(this).val());
+            });
+
+            $.each($("input[name='resBadges']:checked"), function () {
+                resBadges.push($(this).val());
+            });
+
+            if (status) {
+                var request = {
+                    CountryId: $('#CountryId').val(),
+                    RAddress: $('#RAddress').val().trim(),
+                    RCity: $('#RCity').val().trim(),
+                    RContact: $('#RContact').val().trim(),
+                    RDescription: $('#RDescription').val().trim(),
+                    RLatitude: $('#RLatitude').val().trim(),
+                    RLongitude: $('#RLongitude').val().trim(),
+                    GooglePlaceId: $('#GooglePlaceId').val().trim(),
+                    RMetro: $('#RMetro').val().trim(),
+                    RName: $('#RName').val().trim(),
+                    RPostalCode: $('#RPostalCode').val().trim(),
+                    RPrice: $('#RPrice').val().trim(),
+                    RPriceDes: $('#RPriceDes').val().trim(),
+                    RRecommendation: $('#RRecommendation').val().trim(),
+                    MapIcon: $('#MapIcon').val().trim(),
+                    ROpens: ResOpeningHour,
+                    CategoryId: $('#CategoryId').val(),
+                    Subcategories: subcategories,
+                    ResBadgeList: resBadges,
+                    Session1: $('#session01').prop('checked'),
+                    Session2: $('#session02').prop('checked')
+                };
+
+                $.ajax({
+                    async: false,
+                    type: "POST",
+                    url: "/Restaurant/CreateRestaurant",
+                    data: JSON.stringify(request),
+                    dataType: "json",
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (response) {
+                        if (response.isSuccess) {
+                            window.location.replace("/Restaurant/ViewRestaurants");
+                        }
+                        else {
+                        }
+                    },
+                    error: function (response) {
+                    }
+                });
+            }
+            else {
+                return false;
+            }
+        }
+
+        $("#RName").keyup(function () {
+            if ($("#RName").val() != "")
+                $("#nameIdValidation").hide();
+        });
+
+        $("#RCity").keyup(function () {
+            if ($("#RCity").val() != "")
+                $("#cityIdValidation").hide();
+        });
+
+        $("#RDescription").keyup(function () {
+            if ($("#RDescription").val() != "")
+                $("#descriptionIdValidation").hide();
+        });
+
+        $("#RLatitude").keyup(function () {
+            if ($("#RLatitude").val() != "") {
+                $("#latitudeIdValidation").hide();
+            }
+        });
+
+        $("#RLatitude").blur(function () {
+            if ($("#RLatitude").val() != "") {
+                var latitude = Validationlat($("#RLatitude").val());
+
+                if (!latitude) {
+                    $("#latitudeIdValidation").show();
+                    $("#latitudeIdValidation").addClass("text-danger");
+                    $("#latitudeIdValidation").text("The latitude must be a number between -90 and 90");
+                }
+            }
+        });
+
+        $("#RLongitude").blur(function () {
+            if ($("#RLongitude").val() != "") {
+                var latitude = Validationlon($("#RLongitude").val());
+
+                if (!latitude) {
+                    $("#longitudeIdValidation").show();
+                    $("#longitudeIdValidation").addClass("text-danger");
+                    $("#longitudeIdValidation").text("The  longitude must be a number between -180 and 180");
+                }
+            }
+        });
+
+        $("#RLongitude").keyup(function () {
+            if ($("#RLongitude").val() != "") {
+                $("#longitudeIdValidation").hide();
+            }
+        });
+
+        $("#GooglePlaceId").keyup(function () {
+            if ($("#GooglePlaceId").val() != "")
+                $("#googlePlaceIdValidation").hide();
+        });
+
+        $("#RPostalCode").keyup(function () {
+            if ($("#RPostalCode").val() != "")
+                $("#postalCodeIdValidation").hide();
+        });
+
+        $("#MapIcon").keyup(function () {
+            if ($("#MapIcon").val() != "")
+                $("#mapIconIdValidation").hide();
+        });
+
+        $("#RAddress").keyup(function () {
+            if ($("#RAddress").val() != "")
+                $("#addressIdValidation").hide();
+        });
+
+        $("#RMetro").keyup(function () {
+            if ($("#RMetro").val() != "")
+                $("#metroIdValidation").hide();
+        });
+
+        document.querySelectorAll('input[type=number]')
+            .forEach(e => e.oninput = () => {
+                // Always 2 digits
+                if (e.value.length >= 2) e.value = e.value.slice(0, 2);
+                // 0 on the left (doesn't work on FF)
+                if (e.value.length === 1) e.value = '0' + e.value;
+                // Avoiding letters on FF
+                if (!e.value) e.value = '00';
+            });
+
+
+        function Validationlat(value) {
+            var val = parseFloat(value);
+            if (!isNaN(val) && val <= 90 && val >= -90)
+                return true;
+            else
+                return false
+        }
+
+        function Validationlon(value) {
+            var val = parseFloat(value);
+            if (!isNaN(val) && val <= 180 && val >= -180)
+                return true;
+            else
+                return false
+        }
+
+    </script>
+}
